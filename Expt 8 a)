@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Concatenate {
+    string str;
+public:
+    void getData() {
+        cout << "Enter string: ";
+        cin >> str;
+    }
+
+    // Overload + operator
+    Concatenate operator+(Concatenate &obj) {
+        Concatenate temp;
+        temp.str = str + obj.str;
+        return temp;
+    }
+
+    void display() {
+        cout << "Result: " << str << endl;
+    }
+};
+
+int main() {
+    Concatenate s1, s2, s3;
+    s1.getData();
+    s2.getData();
+
+    s3 = s1 + s2;
+    s3.display();
+
+    return 0;
+}
