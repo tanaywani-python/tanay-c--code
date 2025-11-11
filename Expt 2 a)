@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class City {
+    string name;
+    long population;
+
+public:
+    void getData() {
+        cout << "Enter city name: ";
+        cin >> name;
+        cout << "Enter population: ";
+        cin >> population;
+    }
+
+    long getPopulation() {
+        return population;
+    }
+
+    string getName() {
+        return name;
+    }
+};
+
+int main() {
+    City c[5];
+    for (int i = 0; i < 5; i++) {
+        cout << "\nEnter details of city " << i + 1 << ":\n";
+        c[i].getData();
+    }
+
+    int maxIndex = 0;
+    for (int i = 1; i < 5; i++) {
+        if (c[i].getPopulation() > c[maxIndex].getPopulation())
+            maxIndex = i;
+    }
+
+    cout << "\nCity with highest population: " << c[maxIndex].getName() << endl;
+    return 0;
+}
