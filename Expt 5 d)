@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+    float length, breadth;
+
+public:
+    Rectangle() { // Default constructor
+        length = breadth = 0;
+    }
+
+    Rectangle(float l, float b) { // Parameterized constructor
+        length = l;
+        breadth = b;
+    }
+
+    Rectangle(float side) { // Square constructor
+        length = breadth = side;
+    }
+
+    void display() {
+        cout << "Area = " << (length * breadth) << endl;
+    }
+};
+
+int main() {
+    Rectangle r1;
+    Rectangle r2(10.5, 5.5);
+    Rectangle r3(6);
+
+    cout << "Default constructor:\n";
+    r1.display();
+    cout << "Parameterized constructor:\n";
+    r2.display();
+    cout << "Square constructor:\n";
+    r3.display();
+
+    return 0;
+}
