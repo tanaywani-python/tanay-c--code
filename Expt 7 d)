@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class Counter {
+    int count;
+public:
+    void getData() {
+        cout << "Enter count: ";
+        cin >> count;
+    }
+
+    void display() {
+        cout << "Count = " << count << endl;
+    }
+
+    // Pre-increment
+    void operator++() {
+        ++count;
+    }
+
+    // Post-increment
+    void operator++(int) {
+        count++;
+    }
+};
+
+int main() {
+    Counter c;
+    c.getData();
+
+    cout << "\nOriginal: ";
+    c.display();
+
+    ++c;  // pre-increment
+    cout << "After pre-increment: ";
+    c.display();
+
+    c++;  // post-increment
+    cout << "After post-increment: ";
+    c.display();
+
+    return 0;
+}
