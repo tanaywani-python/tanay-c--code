@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    int x;
+    void getX() {
+        cout << "Enter X: ";
+        cin >> x;
+    }
+};
+
+class B : virtual public A {};
+class C : virtual public A {};
+
+class D : public B, public C {
+public:
+    void display() {
+        cout << "Value of X = " << x << endl;
+    }
+};
+
+int main() {
+    D obj;
+    obj.getX();
+    obj.display();
+    return 0;
+}
