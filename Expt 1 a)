@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+Class Student
+int roll-no;
+String name;
+public:
+Void accept ()
+{
+
+Cout <<"Enter student name and woll no: ")
+Cin >> name >> roll-no;
+}
+void disp()
+{
+
+Cout << "Name / of student: "<<name;
+Cout << " In Roll no. : " << sol no,
+}M
+};
+
+int main()
+{
+Student s1;
+S1 accept();
+S1 disp();
+
+return 0;
+}
+  
