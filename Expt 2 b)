@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+class Account {
+    int acc_no;
+    float balance;
+
+public:
+    void getData() {
+        cout << "Enter account number: ";
+        cin >> acc_no;
+        cout << "Enter balance: ";
+        cin >> balance;
+    }
+
+    void addInterest() {
+        if (balance >= 5000)
+            balance += balance * 0.10; // 10% interest
+    }
+
+    void display() {
+        cout << "Account No: " << acc_no << "  Balance: " << balance << endl;
+    }
+};
+
+int main() {
+    Account a[10];
+
+    for (int i = 0; i < 10; i++) {
+        cout << "\nEnter details of account " << i + 1 << ":\n";
+        a[i].getData();
+    }
+
+    cout << "\nAccounts after applying 10% interest (for balances >= 5000):\n";
+    for (int i = 0; i < 10; i++) {
+        a[i].addInterest();
+        a[i].display();
+    }
+
+    return 0;
+}
