@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    string name;
+    float percentage;
+public:
+    Student(string n, float p) {
+        name = n;
+        percentage = p;
+    }
+
+    void display() {
+        cout << "\nStudent Name: " << name;
+        cout << "\nPercentage: " << percentage << "%" << endl;
+    }
+};
+
+int main() {
+    string name;
+    float per;
+    cout << "Enter student name: ";
+    getline(cin, name);
+    cout << "Enter percentage: ";
+    cin >> per;
+
+    Student s(name, per);
+    s.display();
+
+    return 0;
+}
