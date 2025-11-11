@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+class A;
+class B;
+
+class A {
+    int num1;
+public:
+    void getData() {
+        cout << "Enter number from class A: ";
+        cin >> num1;
+    }
+    friend void greatest(A, B);
+};
+
+class B {
+    int num2;
+public:
+    void getData() {
+        cout << "Enter number from class B: ";
+        cin >> num2;
+    }
+    friend void greatest(A, B);
+};
+
+void greatest(A a, B b) {
+    if (a.num1 > b.num2)
+        cout << "Greatest number = " << a.num1 << endl;
+    else
+        cout << "Greatest number = " << b.num2 << endl;
+}
+
+int main() {
+    A a;
+    B b;
+    a.getData();
+    b.getData();
+    greatest(a, b);
+    return 0;
+}
