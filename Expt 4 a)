@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Result {
+    float marks;
+public:
+    void getMarks() {
+        cout << "Enter marks: ";
+        cin >> marks;
+    }
+    float getValue() {
+        return marks;
+    }
+};
+
+float average(Result r1, Result r2) {
+    return (r1.getValue() + r2.getValue()) / 2;
+}
+
+int main() {
+    Result r1, r2;
+    r1.getMarks();
+    r2.getMarks();
+
+    cout << "Average Marks = " << average(r1, r2) << endl;
+    return 0;
+}
