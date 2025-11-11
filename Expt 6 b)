@@ -1,29 +1,35 @@
 #include <iostream>
 using namespace std;
 
-class Student {
+class Sports {
 public:
-    int roll_no;
-    void get_roll() { cout << "Enter Roll No: "; cin >> roll_no; }
+    int score;
+    void get_score() {
+        cout << "Enter sports score: ";
+        cin >> score;
+    }
 };
 
-class Marks : public Student {
+class Exam {
 public:
     int marks;
-    void get_marks() { cout << "Enter Marks: "; cin >> marks; }
+    void get_marks() {
+        cout << "Enter exam marks: ";
+        cin >> marks;
+    }
 };
 
-class Result : public Marks {
+class Result : public Sports, public Exam {
 public:
     void display() {
-        cout << "\nRoll No: " << roll_no << "\nMarks: " << marks << endl;
+        cout << "\nTotal = " << marks + score << endl;
     }
 };
 
 int main() {
     Result r;
-    r.get_roll();
     r.get_marks();
+    r.get_score();
     r.display();
     return 0;
 }
