@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class Outer {
+public:
+    int x;
+
+    class Inner {
+    public:
+        void show() {
+            cout << "This is the inner class function.\n";
+        }
+    };
+
+    void display() {
+        cout << "This is the outer class function.\n";
+    }
+};
+
+int main() {
+    Outer obj;
+    Outer::Inner inObj;
+
+    obj.display();
+    inObj.show();
+
+    return 0;
+}
