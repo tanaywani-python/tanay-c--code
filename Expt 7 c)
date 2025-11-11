@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+class Number {
+    int value;
+public:
+    void getData() {
+        cout << "Enter a number: ";
+        cin >> value;
+    }
+
+    void display() {
+        cout << "Value = " << value << endl;
+    }
+
+    void operator-() {  // Overloading unary minus
+        value = -value;
+    }
+};
+
+int main() {
+    Number n;
+    n.getData();
