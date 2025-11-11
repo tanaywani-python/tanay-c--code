@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+    int roll_no;
+    float percentage;
+
+public:
+    void getData() {
+        cout << "Enter roll number: ";
+        cin >> this->roll_no;
+        cout << "Enter percentage: ";
+        cin >> this->percentage;
+    }
+
+    void displayData() {
+        cout << "\nRoll Number: " << this->roll_no;
+        cout << "\nPercentage: " << this->percentage << "%" << endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.getData();
+    s.displayData();
+    return 0;
+}
