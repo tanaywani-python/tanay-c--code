@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+template <class T>
+class Vector {
+    T arr[100];
+    int size;
+public:
+    Vector(T a[], int s) {
+        size = s;
+        for (int i = 0; i < s; i++)
+            arr[i] = a[i];
+    }
+
+    void multiply(T scalar) {
+        for (int i = 0; i < size; i++)
+            arr[i] *= scalar;
+    }
+
+    void display() {
+        cout << "Vector elements: ";
+        for (int i = 0; i < size; i++)
+            cout << arr[i] << " ";
+        cout << endl;
+    }
+};
+
+int main() {
+    int a[] = {5, 10, 15};
+    Vector<int> v(a, 3);
+
+    cout << "Original vector:\n";
+    v.display();
+
+    int scalar;
+    cout << "Enter scalar value to multiply: ";
+    cin >> scalar;
+
+    v.multiply(scalar);
+    cout << "After multiplication:\n";
+    v.display();
+    return 0;
+}
