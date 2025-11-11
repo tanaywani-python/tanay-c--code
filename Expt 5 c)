@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class College {
+    int roll_no;
+    string name, course;
+
+public:
+    // Default constructor with default course name
+    College() {
+        course = "Computer Engineering";
+    }
+
+    void getData() {
+        cout << "Enter Roll No: ";
+        cin >> roll_no;
+        cin.ignore();
+        cout << "Enter Name: ";
+        getline(cin, name);
+    }
+
+    void display() {
+        cout << "\nRoll No: " << roll_no;
+        cout << "\nName: " << name;
+        cout << "\nCourse: " << course << endl;
+    }
+};
+
+int main() {
+    College c1, c2;
+    cout << "Enter details for student 1:\n";
+    c1.getData();
+    cout << "Enter details for student 2:\n";
+    c2.getData();
+
+    cout << "\n--- Student Details ---\n";
+    c1.display();
+    c2.display();
+    return 0;
+}
