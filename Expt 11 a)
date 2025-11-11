@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+template <class T>
+class Vector {
+    T arr[100];
+    int size;
+public:
+    Vector(T a[], int s) {
+        size = s;
+        for (int i = 0; i < s; i++)
+            arr[i] = a[i];
+    }
+
+    void modify(int index, T value) {
+        if (index >= 0 && index < size)
+            arr[index] = value;
+        else
+            cout << "Invalid index!" << endl;
+    }
+
+    void display() {
+        cout << "Vector elements: ";
+        for (int i = 0; i < size; i++)
+            cout << arr[i] << " ";
+        cout << endl;
+    }
+};
+
+int main() {
+    int a[] = {10, 20, 30, 40, 50};
+    Vector<int> v(a, 5);
+
+    cout << "Before modification:\n";
+    v.display();
+
+    int index, value;
+    cout << "Enter index and new value: ";
+    cin >> index >> value;
+
+    v.modify(index, value);
+
+    cout << "After modification:\n";
+    v.display();
+    return 0;
+}
