@@ -1,0 +1,135 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+
+class Person {
+public:
+    string name;
+    string birthDate;
+    string phone;
+
+    void input() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Birth Date (dd-mm-yyyy): ";
+        cin >> birthDate;
+        cout << "Enter Telephone No: ";
+        cin >> phone;
+    }
+
+    void display() const {
+        cout << "Name: " << name << ", Birth Date: " << birthDate << ", Phone: " << phone << endl;
+    }
+};
+
+
+class Item {
+public:
+    int code;
+    string name;
+    int quantity;
+    float cost;
+
+    void input() {
+        cout << "Enter Item Code: ";
+        cin >> code;
+        cout << "Enter Item Name: ";
+        cin >> name;
+        cout << "Enter Quantity: ";
+        cin >> quantity;
+        cout << "Enter Cost: ";
+        cin >> cost;
+    }
+
+    void display() const {
+        cout << "Code: " << code << ", Name: " << name
+             << ", Quantity: " << quantity << ", Cost: " << cost << endl;
+    }
+};
+
+
+int main() {
+    int choice;
+    cout << "1. Person Records\n2. Item Records\nEnter choice: ";
+    cin >> choice;
+
+    if (choice == 1) {
+        int n;
+        cout << "Enter number of persons: ";
+        cin >> n;
+        Person p[50];
+
+        for (int i = 0; i < n; i++) {
+            cout << "\nEnter details of Person " << i + 1 << ":\n";
+            p[i].input();
+        }
+
+        
+        sort(p, p + n, [](Person a, Person b) { return a.name < b.name; });
+
+        cout << "\n--- Sorted Person List (by Name) ---\n";
+        for (int i = 0; i < n; i++) p[i].display();
+
+        
+        string searchName;
+        cout << "\nEnter name to search: ";
+        cin >> searchName;
+        bool found = false;
+
+        for (int i = 0; i < n; i++) {
+            if (p[i].name == searchName) {
+                cout << "Record Found:\n";
+                p[i].display();
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+            cout << "Record not found.\n";
+    }
+
+    else if (choice == 2) {
+        int n;
+        cout << "Enter number of items: ";
+        cin >> n;
+        Item it[50];
+
+        for (int i = 0; i < n; i++) {
+            cout << "\nEnter details of Item " << i + 1 << ":\n";
+            it[i].input();
+        }
+
+        
+        sort(it, it + n, [](Item a, Item b) { return a.code < b.code; });
+
+        cout << "\n--- Sorted Item List (by Code) ---\n";
+        for (int i = 0; i < n; i++) it[i].display();
+
+        
+        int code;
+        cout << "\nEnter item code to search: ";
+        cin >> code;
+        bool found = false;
+
+        for (int i = 0; i < n; i++) {
+            if (it[i].code == code) {
+                cout << "Record Found:\n";
+                it[i].display();
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+            cout << "Item not found.\n";
+    }
+
+    else {
+        cout << "Invalid choice!";
+    }
+
+    return 0;
+}
