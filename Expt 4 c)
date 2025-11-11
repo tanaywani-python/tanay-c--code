@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+class Sample {
+    int data;
+public:
+    void getData() {
+        cout << "Enter value: ";
+        cin >> data;
+    }
+    void display() {
+        cout << data << endl;
+    }
+    friend void swapValues(Sample &, Sample &);
+};
+
+void swapValues(Sample &x, Sample &y) {
+    int temp = x.data;
+    x.data = y.data;
+    y.data = temp;
+}
+
+int main() {
+    Sample s1, s2;
+    cout << "Enter data for first object:\n";
+    s1.getData();
+    cout << "Enter data for second object:\n";
+    s2.getData();
+
+    cout << "\nBefore swapping:\n";
+    cout << "s1 = "; s1.display();
+    cout << "s2 = "; s2.display();
+
+    swapValues(s1, s2);
+
+    cout << "\nAfter swapping:\n";
+    cout << "s1 = "; s1.display();
+    cout << "s2 = "; s2.display();
+
+    return 0;
+}
