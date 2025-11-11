@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+template <class T>
+T square(T x) {
+    return x * x;
+}
+
+// Specialized version for string
+template <>
+string square(string s) {
+    return s + s;
+}
+
+int main() {
+    cout << "Square of 5: " << square(5) << endl;
+    cout << "Square of 2.5: " << square(2.5) << endl;
+    cout << "Square of string: " << square(string("Hi")) << endl;
+    return 0;
+}
